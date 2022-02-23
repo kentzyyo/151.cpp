@@ -1,40 +1,47 @@
 #include <iostream>
+#include <cstdlib>
+#include <string>
 using namespace std;
 
 int main()
 {
-    int arr[50], n=10;
+    // declare variables
+    const int size = 10;
+    string evens;
+    string odds;
 
-    cout << "Enter the elements of the array: \n";
+    // get user input and accumulate evens and odds
+    cout << "Input " << size << " integers in the array:" << endl;
+    for(int i=0; i<size; i++) {
+        int num;
+        cout << "array[" << i << "] : ";
+        cin  >> num;
 
-    for (int i=0;i<n;i++){
-        cin >> arr[i];
+        if(num % 2 == 0)
+            evens += to_string(num) + " ";
+        else
+            odds  += to_string(num) + " ";
     }
 
-    cout << "\nEven Elements Found!";
-    cout << "\nThe Even Integers are: ";
-    for(int i=0;i<n;i++){
-        if(arr[i]%2==0){
-            cout << arr[i] << " ";
-        }
-        else{
-            cout << "Even Integers Not Found!";
-            break;
-        }
+    // display evens
+    cout << endl;
+    if(!evens.empty()) {
+        cout << "Even integers Found!" << endl;
+        cout << "The Even integers are: " << endl << evens << endl;
     }
-   
-    cout << "\nOdd Elements Found!";
-    cout << "\nThe Odd Integers are: ";
-    for(int i=0; i<n; i++){
-        if(arr[i]%2==1){
-            cout << arr[i] << " ";
-        }
-        else{
-            cout << "Odd Integers Not Found!";
-            break;
-        }
+    else
+        cout << "No Even integers found!" << endl;
+
+    // display odds
+    cout << endl;
+    if(!odds.empty()) {
+        cout << "Odd integers Found!" << endl;
+        cout << "The Odd integers are: " << endl << odds << endl;
     }
-   
-    
+    else
+        cout << "No Odd integers found!" << endl;
+
+    cout << endl;
+    system("PAUSE");
     return 0;
 }
